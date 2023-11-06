@@ -5,6 +5,8 @@ const categorySpan = document.querySelectorAll(".category span");
 const baseUrl = 'https://newsapi.org/v2';
 const apiKey = 'apiKey=4b238002069946ec807f30672e0599d0';
 
+const defaultImage = 'https://images.unsplash.com/photo-1682685797507-d44d838b0ac7?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+
 // const newsAll = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=4b238002069946ec807f30672e0599d0';
 // const newsBusiness = 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=4b238002069946ec807f30672e0599d0';
 // const urlTechcrunch = 'https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=4b238002069946ec807f30672e0599d0';
@@ -27,7 +29,7 @@ function urlRequest(url){
             data.articles.forEach(item => {
                 cards.innerHTML += `<div class="card">
                     <div class="image">
-                            <img src="${item.urlToImage}" alt="Default News Image"> 
+                            <img src="${item.urlToImage ? item.urlToImage : defaultImage}" alt="Default News Image"> 
                         </div>
                         <div class="information">
                             <div>
